@@ -6,23 +6,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import lombok.extern.slf4j.Slf4j;
-import me.chanjar.weixin.channel.api.WxChannelAddressService;
-import me.chanjar.weixin.channel.api.WxChannelAfterSaleService;
-import me.chanjar.weixin.channel.api.WxChannelBasicService;
-import me.chanjar.weixin.channel.api.WxChannelBrandService;
-import me.chanjar.weixin.channel.api.WxChannelCategoryService;
-import me.chanjar.weixin.channel.api.WxChannelCouponService;
-import me.chanjar.weixin.channel.api.WxChannelFreightTemplateService;
-import me.chanjar.weixin.channel.api.WxChannelFundService;
-import me.chanjar.weixin.channel.api.WxChannelOrderService;
-import me.chanjar.weixin.channel.api.WxChannelProductService;
-import me.chanjar.weixin.channel.api.WxChannelService;
-import me.chanjar.weixin.channel.api.WxChannelSharerService;
-import me.chanjar.weixin.channel.api.WxChannelWarehouseService;
-import me.chanjar.weixin.channel.api.WxLeagueProductService;
-import me.chanjar.weixin.channel.api.WxLeaguePromoterService;
-import me.chanjar.weixin.channel.api.WxLeagueSupplierService;
-import me.chanjar.weixin.channel.api.WxLeagueWindowService;
+import me.chanjar.weixin.channel.api.*;
 import me.chanjar.weixin.channel.config.WxChannelConfig;
 import me.chanjar.weixin.channel.util.JsonUtils;
 import me.chanjar.weixin.common.api.WxConsts;
@@ -64,6 +48,7 @@ public abstract class BaseWxChannelServiceImpl<H, P> implements WxChannelService
   private WxLeagueSupplierService leagueSupplierService = null;
   private WxLeaguePromoterService leaguePromoterService = null;
   private WxLeagueProductService leagueProductService = null;
+  private WxChannelVipService vipService = new WxChannelVipServiceImpl(this);
 
   protected WxChannelConfig config;
   private int retrySleepMillis = 1000;
@@ -353,6 +338,11 @@ public abstract class BaseWxChannelServiceImpl<H, P> implements WxChannelService
   @Override
   public WxChannelFundService getFundService() {
     return fundService;
+  }
+
+  @Override
+  public WxChannelVipService getVipService() {
+    return vipService;
   }
 
   @Override

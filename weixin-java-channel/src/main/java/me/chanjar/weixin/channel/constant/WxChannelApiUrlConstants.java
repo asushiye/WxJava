@@ -16,6 +16,12 @@ public class WxChannelApiUrlConstants {
   public static final String GET_ACCESS_TOKEN_URL =
     "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=%s&secret=%s";
 
+  /**
+   * 获取Stable access_token.
+   */
+  public static final String GET_STABLE_ACCESS_TOKEN_URL = "https://api.weixin.qq.com/cgi-bin/stable_token";
+
+
   /** 基础接口 */
   public interface Basics {
 
@@ -346,5 +352,23 @@ public class WxChannelApiUrlConstants {
     String LIST_WINDOW_PRODUCT_URL = "https://api.weixin.qq.com/channels/ec/window/product/list/get";
     /** 下架橱窗商品 */
     String OFF_WINDOW_PRODUCT_URL = "https://api.weixin.qq.com/channels/ec/window/product/off";
+  }
+
+  /** 会员功能接口 */
+  public interface Vip {
+    /** 拉取用户详情 */
+    String VIP_USER_INFO_URL = "https://api.weixin.qq.com/channels/ec/vip/user/info/get";
+    /** 拉取用户列表 */
+    String VIP_USER_LIST_URL = "https://api.weixin.qq.com/channels/ec/vip/user/list/get";
+
+    /** 获取用户积分 */
+    String VIP_SCORE_URL = "https://api.weixin.qq.com/channels/ec/vip/user/score/get";
+    /** 增加用户积分 */
+    String SCORE_INCREASE_URL = "https://api.weixin.qq.com/channels/ec/vip/user/score/increase";
+    /** 减少用户积分 */
+    String SCORE_DECREASE_URL = "https://api.weixin.qq.com/channels/ec/vip/user/score/decrease";
+
+    /** 更新用户等级 */
+    String GRADE_UPDATE_URL = "https://api.weixin.qq.com/channels/ec/vip/user/grade/update";
   }
 }

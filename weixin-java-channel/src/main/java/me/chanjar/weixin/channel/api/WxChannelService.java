@@ -119,4 +119,10 @@ public interface WxChannelService extends BaseWxChannelService {
    */
   WxLeagueProductService getLeagueProductService();
 
+  /**
+   * 会员功能
+   *
+   * @return 会员服务
+   */
+  WxChannelVipService getVipService();
 }
